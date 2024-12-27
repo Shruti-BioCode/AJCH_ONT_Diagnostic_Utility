@@ -34,11 +34,11 @@ referenceDB[["hg19"]] = list(
   "Episign_Values" = "reference/episign/methylation_42_disease.txt",
   
   # sma values consists of methylation modification values for the discovered region of SMN1 from 2 positive and 2 carriers and angleman as negative/control.
-  "SMA" = "reference/hg19/sma.values",
+ # "SMA" = "reference/hg19/sma.values",
   
   # Currently ImD values consists of methylation modification values for Angleman positive and smna +ve cases as negative/control.
-  "ImD_values" = "reference/hg19/imd.values",
-  "ImD_bed" = "reference/hg19/imd.bed"
+  #"ImD_values" = "reference/hg19/imd.values",
+  #"ImD_bed" = "reference/hg19/imd.bed"
 ) 
 
 # bed file for the episign methylation, region for SMA and angleman/padrewili for hg19
@@ -49,11 +49,11 @@ referenceDB[["hg38"]] = list(
   "Episign_Values" = "reference/episign/methylation_42_disease.txt",
   
   # sma values consists of methylation modification values for the discovered region of SMN1 from 2 positive and 2 carriers and angleman as negative/control.
-  "SMA" = "reference/hg38/sma.values",
+  #"SMA" = "reference/hg38/sma.values",
   
   # Currently ImD values consists of methylation modification values for Angleman positive and smna +ve cases as negative/control.
-  "ImD_values" = "reference/hg38/imd.values",
-  "ImD_bed" = "reference/hg38/imd.bed"
+  #"ImD_values" = "reference/hg38/imd.values",
+  #"ImD_bed" = "reference/hg38/imd.bed"
 ) 
 
 annotation_file_list = list()
