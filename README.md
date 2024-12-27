@@ -24,34 +24,3 @@ All codes are compatible with R version 4.3.0 and genome build hg19
 ```
 
 
-### Epimarker - Methylation Analysis ###
-
-Step 1: process methylation calls using the command below
-``` Rscript
-# read the list of files (Epi2Me -methyl output) from input directory. 
-methylfiles = c("/path/to/your/bedmethyl/files", full.names = T)
-samplenames = gsub(".*/|.methyl.cpg.bed.gz","",methylfiles)
-
-# generate the methylation data for the episign probes, SMA & Angleman genomic region
-methylationData = generate_methylation_data(methylfiles = methylfiles, samplenames = samplenames, reference = "hg19")
-```
-
-Step 2: Analyse the methylation data for Episigns, Angelman & SMA
-```Rscript
-methylation_results = run_complete_methylation_analysis(outdir = "/path/to/output/directory", methylationData = methylationData, cohort_samples=samplenames,remove_unstable_episignature = TRUE).
-remove_unstable_episignature :  options (TRUE/FALSE), default: FALSE.
-                                If selected TRUE, will remove Episigns CdLS, AUTS18 and RSTS that have been reported to have weak/overlapping methylation profile.
-```
-
-Output files:
-```
-|---MNDD
-        |---Epimarker_Overview.pdf - pca & heatmap plot across all the samples under analysis
-        |---epimarker_results.txt - samples matching episign profile
-        |---complete_epimarker_results.txt - all profile comparisons compared along with the distance/correlation matrices values
-        |---sample.pdf - pca & heatmap for the sample "sample" across all comparison
-        |---sample.pdf - all profile comparisons compared along with the distance/correlation matrices values for the sample "sample"
-|---SMA |---SMA_heatmap.pdf -  heatmap along with (%) bases modified across all the samples
-|---ImD |---Angelman_heatmap.pdf -  heatmap along with (%) bases modified across all the samples
-```
-
