@@ -23,4 +23,5 @@ Software for processing:
 All codes are compatible with R version 4.3.0 and genome build hg19
 ```
 
-
+Follow Wiki for the different modules  
+1. [Epimarker - methylation analysis](https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/wiki/Epimarker-%E2%80%90-methylation-analysis)
