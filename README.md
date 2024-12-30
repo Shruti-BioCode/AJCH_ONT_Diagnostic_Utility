@@ -1,13 +1,11 @@
 #### This is a composite repository for analysing long read sequencing data from Oxford Nanopore Technologies in a heterogenous disease cohort for the study ####
 **"Long read sequencing enhances pathogenic and novel variation discovery in patients with rare diseases"** 
 
-
-
-It provides instructions for
-1. Running "Epimarker" for methylation analysis - comparison with known 34 Mendelian Neurological disorders, Angelman Syndrome and SMA from methylation bedfiles.
-2. Filtering, CNV & SVs from processed & annotated files of ClassifyCNV and AnnotSV
-3. Filtering Splicing variants from spliceAi output files.
-4. Filtering SNVs.
+It contains all the scripts used for analysis and plotting in the paper. 
+1. Running "Epimarker" for methylation analysis - comparison with known 34 Mendelian Neurological disorders, Angelman Syndrome and SMA from methylation bedfiles. (https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/blob/main/Rscripts/Epimarker.R)
+2. CNV & SVs analysis using "Funnel Down" approach from processed & annotated files of ClassifyCNV and AnnotSV (https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/blob/main/Rscripts/CNV_SV_get_candidate_stats.R)
+3. Splicing variants analysis from spliceAi output files. (https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/blob/main/Rscripts/spliceai_analysis.R)
+4. Long read sepcific SNV analysis, post removing variants detected from whole exome sequencing. (https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/blob/main/Rscripts/ONT_specific_variant_filtering_analysis.R)
 
 Below are the softwares used for the analysis
 ```
@@ -23,35 +21,7 @@ Software for processing:
 All codes are compatible with R version 4.3.0 and genome build hg19
 ```
 
-
-### Epimarker - Methylation Analysis ###
-
-Step 1: process methylation calls using the command below
-``` Rscript
-# read the list of files (Epi2Me -methyl output) from input directory. 
-methylfiles = c("/path/to/your/bedmethyl/files", full.names = T)
-samplenames = gsub(".*/|.methyl.cpg.bed.gz","",methylfiles)
-
-# generate the methylation data for the episign probes, SMA & Angleman genomic region
-methylationData = generate_methylation_data(methylfiles = methylfiles, samplenames = samplenames, reference = "hg19")
-```
-
-Step 2: Analyse the methylation data for Episigns, Angelman & SMA
-```Rscript
-methylation_results = run_complete_methylation_analysis(outdir = "/path/to/output/directory", methylationData = methylationData, cohort_samples=samplenames,remove_unstable_episignature = TRUE).
-remove_unstable_episignature :  options (TRUE/FALSE), default: FALSE.
-                                If selected TRUE, will remove Episigns CdLS, AUTS18 and RSTS that have been reported to have weak/overlapping methylation profile.
-```
-
-Output files:
-```
-|---MNDD
-        |---Epimarker_Overview.pdf - pca & heatmap plot across all the samples under analysis
-        |---epimarker_results.txt - samples matching episign profile
-        |---complete_epimarker_results.txt - all profile comparisons compared along with the distance/correlation matrices values
-        |---sample.pdf - pca & heatmap for the sample "sample" across all comparison
-        |---sample.pdf - all profile comparisons compared along with the distance/correlation matrices values for the sample "sample"
-|---SMA |---SMA_heatmap.pdf -  heatmap along with (%) bases modified across all the samples
-|---ImD |---Angelman_heatmap.pdf -  heatmap along with (%) bases modified across all the samples
-```
-
+Follow Wiki for instruction on analysing your own dataset  
+1. [Epimarker - methylation analysis](https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/wiki/Epimarker-%E2%80%90-methylation-analysis)
+2. [Funnel down - CNVs/SVs analysis](https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/wiki/Funnel-Down-Filtering-%E2%80%90-CNVs---SVs)
+3. [Splice Variant Analysis](https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/wiki/Splice-Variant-Analysis)
