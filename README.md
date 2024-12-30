@@ -2,10 +2,10 @@
 **"Long read sequencing enhances pathogenic and novel variation discovery in patients with rare diseases"** 
 
 It contains all the scripts used for analysis and plotting in the paper. 
-1. Running "Epimarker" for methylation analysis - comparison with known 34 Mendelian Neurological disorders, Angelman Syndrome and SMA from methylation bedfiles. (https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/blob/main/Rscripts/Epimarker.R)
-2. CNV & SVs analysis using "Funnel Down" approach from processed & annotated files of ClassifyCNV and AnnotSV (https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/blob/main/Rscripts/CNV_SV_get_candidate_stats.R)
-3. Splicing variants analysis from spliceAi output files. (https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/blob/main/Rscripts/spliceai_analysis.R)
-4. Long read sepcific SNV analysis, post removing variants detected from whole exome sequencing. (https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/blob/main/Rscripts/ONT_specific_variant_filtering_analysis.R)
+1. Running "Epimarker" for methylation analysis - comparison with known 34 Mendelian Neurological disorders, Angelman Syndrome and SMA from methylation bedfiles. [rscript] (https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/blob/main/Rscripts/Epimarker.R)
+2. CNV & SVs analysis using "Funnel Down" approach from processed & annotated files of ClassifyCNV and AnnotSV. [rscript](https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/blob/main/Rscripts/CNV_SV_get_candidate_stats.R)
+3. Splicing variants analysis from spliceAi output files. [rscript](https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/blob/main/Rscripts/spliceai_analysis.R)
+4. Long read sepcific SNV analysis, post removing variants detected from whole exome sequencing. [rscript] (https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/blob/main/Rscripts/ONT_specific_variant_filtering_analysis.R)
 
 Below are the softwares used for the analysis
 ```
