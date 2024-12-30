@@ -1,13 +1,11 @@
 #### This is a composite repository for analysing long read sequencing data from Oxford Nanopore Technologies in a heterogenous disease cohort for the study ####
 **"Long read sequencing enhances pathogenic and novel variation discovery in patients with rare diseases"** 
 
-
-
-It provides instructions for
-1. Running "Epimarker" for methylation analysis - comparison with known 34 Mendelian Neurological disorders, Angelman Syndrome and SMA from methylation bedfiles.
-2. Filtering, CNV & SVs from processed & annotated files of ClassifyCNV and AnnotSV
-3. Filtering Splicing variants from spliceAi output files.
-4. Filtering SNVs.
+It contains all the scripts used for analysis and plotting in the paper. 
+1. Running "Epimarker" for methylation analysis - comparison with known 34 Mendelian Neurological disorders, Angelman Syndrome and SMA from methylation bedfiles. (https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/blob/main/Rscripts/Epimarker.R)
+2. CNV & SVs analysis using "Funnel Down" approach from processed & annotated files of ClassifyCNV and AnnotSV (https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/blob/main/Rscripts/CNV_SV_get_candidate_stats.R)
+3. Splicing variants analysis from spliceAi output files. (https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/blob/main/Rscripts/spliceai_analysis.R)
+4. Long read sepcific SNV analysis, post removing variants detected from whole exome sequencing. (https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/blob/main/Rscripts/ONT_specific_variant_filtering_analysis.R)
 
 Below are the softwares used for the analysis
 ```
@@ -23,6 +21,7 @@ Software for processing:
 All codes are compatible with R version 4.3.0 and genome build hg19
 ```
 
-Follow Wiki for the different modules  
+Follow Wiki for instruction on analysing your own dataset  
 1. [Epimarker - methylation analysis](https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/wiki/Epimarker-%E2%80%90-methylation-analysis)
 2. [Funnel down - CNVs/SVs analysis](https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/wiki/Funnel-Down-Filtering-%E2%80%90-CNVs---SVs)
+3. [Splice Variant Analysis](https://github.com/Shruti-BioCode/AJCH_ONT_Diagnostic_Utility/wiki/Splice-Variant-Analysis)
