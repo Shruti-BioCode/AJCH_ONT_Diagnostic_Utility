@@ -1,5 +1,5 @@
 
-setwd(gsub("Rscripts","",dirname(rstudioapi::getSourceEditorContext()$path)))
+# setwd(gsub("Rscripts","",dirname(rstudioapi::getSourceEditorContext()$path)))
 
 source("Rscripts/utility.R")
 
@@ -87,7 +87,7 @@ analyse_data <-function(qdnaseq_dir = NULL, cuteSV_dir=NULL, snifflesSV_dir=NULL
   rdsfile = file.path(outdir,paste0(outfile_prefix,"_data.RDS"))
   
   ### add annotation on unique, disease causing , dirupting genes..
-  qdnaseq = add_CNV_SV_filtering_annotation(full_data=qdnaseq, method="qdnaseq")
+  qdnaseq = add_CNV_SV_filtering_annotation(full_data=qdnaseq, method="QDNAseq")
   cuteSV = add_CNV_SV_filtering_annotation(full_data=cuteSV, method="cuteSV")
   snifflesSV = add_CNV_SV_filtering_annotation(full_data=snifflesSV, method="sniffles")
   
