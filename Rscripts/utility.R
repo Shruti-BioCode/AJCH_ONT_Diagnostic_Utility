@@ -31,7 +31,7 @@ referenceDB[["hg19"]] = list(
   "probeBed" = "reference/hg19/methylation/regions.bed",
   # episign values and probes used for profile
   "Episign_Marker" =  "reference/episign/methylation_42_disease_markers.txt",
-  "Episign_Values" = "reference/episign/methylation_42_disease.txt",
+  "Episign_Values" = "reference/episign/methylation_42_disease.txt"
   
   # sma values consists of methylation modification values for the discovered region of SMN1 from 2 positive and 2 carriers and angleman as negative/control.
  # "SMA" = "reference/hg19/sma.values",
@@ -46,7 +46,7 @@ referenceDB[["hg38"]] = list(
   "probeBed" = "reference/hg38/methylation/regions.bed",
   # episign values and probes used for profile
   "Episign_Marker" =  "reference/episign/methylation_42_disease_markers.txt",
-  "Episign_Values" = "reference/episign/methylation_42_disease.txt",
+  "Episign_Values" = "reference/episign/methylation_42_disease.txt"
   
   # sma values consists of methylation modification values for the discovered region of SMN1 from 2 positive and 2 carriers and angleman as negative/control.
   #"SMA" = "reference/hg38/sma.values",
@@ -1031,6 +1031,8 @@ methylation_profiling_heatmap <-function(methylationData = NULL, readdepth = 5, 
   methylationData = methylationData[,smn1_posavg:=mean(read_depth),by=c("position")]
   methylationData = methylationData[,smn1_nomod:=uniqueN(position[modification==0])/uniqueN(position)*100, by=c("sampleID")]
   methylationData = methylationData[,smn1_mod:=uniqueN(position[modification>0])/uniqueN(position)*100, by=c("sampleID")]
+  methylationData = methylationData[,smn1_mod_n:=uniqueN(position[modification>0]), by=c("sampleID")]
+  methylationData = methylationData[,bases_n:=uniqueN(position), by=c("sampleID")]
   
   #	p1 = ggplot(methylationData, aes(x=pos, y=read_depth, group = sample)) + geom_smooth(method="auto" , fill="#69b3a2", se=TRUE, level=0.95, alpha=0.2) + 
   #	theme_classic() + theme(axis.text = element_text(size=15, colour="black")) +
@@ -1089,7 +1091,7 @@ methylation_profiling_heatmap <-function(methylationData = NULL, readdepth = 5, 
   print(p3)
   print(p4)	
   dev.off()
-  
+  methylationDataSummary = unique(methylationData[,c("sampleID","bases_n","smn1_mod_n","smn1_nomod","smn1_sampleavg","smn1_mod")])
   return(list("summary_data"=methylationDataSummary,"methylation_data"=fdata))
   
   
